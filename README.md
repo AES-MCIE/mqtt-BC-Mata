@@ -47,7 +47,7 @@ sudo systemctl enable mosquitto.service
 
 Then, as you can see in the next image, now if type the status command, we can see the service is enabled
 
-*imagen de mosquitto habilitado*
+![](stat-mosq.JPG)
 
 ## Configuration
 
