@@ -102,7 +102,7 @@ beaglebone.local:1880
 
 Now, to see if it is working correctly is necessary to download `MQTTX` in your PC. Create a new conection by clicking in the plus symbol on the top-left part of the app. Then fill with the next information.
 
-imagen de configuracion de conexion
+![](./conf_serv.JPG)
 
 I have already that name, so in my case, it shall not be created.
 
@@ -110,34 +110,33 @@ Go to the local host of the beaglebone: `beaglebone.local:1880`, then in the new
 `mqtt in` in "network"
 `debug` in "commun"
 `chart` in dashboard
-
-imagen test1
+![](./test1.JPG)
 
 Double click in mqtt (pink) and fill with the next information. To change the server go to the next step.
 
-imagen test2
+![](./test2.JPG)
 
 Now click in the pencil next to the server. Type the I.P. of the beagle (in this case 192.168.7.2), with the port 1883 and change the protocol to `MQTT V3.1.1`, press the red button `Update` and `Done`.
 
-imagen test3
+![](./test3.JPG)
 
 Now doble click in chart (blue), go directly to the pencil next to Group. Then, again to the pencil next to Tab, give it a name (I'll use Graph), finally press the buttons `Update` and `Done`
 
-imagen test4
+![](./text4.JPG)
 
-imagen test5
+![](./test5.JPG)
 
-imagen test6
+![](./test6.JPG)
 
 Go to the app in the PC, connect the server of mosquitto (green button). In the local host of the browser click on the red button on the top-right side `Deploy`.
 
-imagen button1
+![](./button1.JPG)
 
-imagen button2
+![](./button2.JPG)
 
 Make sure the topic of the server is the same as the Node-Red net. In this case the topic is `test.`
 
-imagen topic
+![](./topic.JPG)
 
 # Temperatu and Humidity Sensor
 
@@ -147,13 +146,13 @@ The sensor that is gonna be used is the Dht11, if you watch it from the front of
 `Data` is the measure pin.
 `GND` is the ground connection.
 
-imagen dht11
+![](./dht11.JPG)
 
 ## Connections
 
 It is necessary to put a 10k Ohms resistor with a pull up configuration. Follow the next image.
 
-imagen fritzing
+![](./fritzing.JPG)
 
 ## Programming
 
@@ -161,7 +160,7 @@ Download Arduino in your PC, then open the app, go to `Archive -> Preferences`, 
 `https://dl.espressif.com/dl/package_esp32_index.json`
 Then, click on `Ok`.
 
-imagen gestor
+![](./gestor.JPG)
 
 Go to `Tools -> Plates -> Pkate Manager` and in Search type `esp32`, and look for the one that was made by Espressif Systems.
 
@@ -171,11 +170,11 @@ Go to `Program -> Add Libraries -> Manage Libraries` and type in Search:
 `DHT sensor library` by Adafruit
 `Adafruit Unifed Sensor` by Adafruit
 
-imagen biblio1
+![](./biblio1.JPG)
 
-imagen biblio2
+![](./biblio2.JPG)
 
-imagen biblio3
+![](./biblio3.JPG)
 
 Use the code of `dht11-esp32.ino` to test the sensor. When you are gonna send the code to the esp32, it's going to look for comunication, so when it happens, make sure the next things in `Tools`:
 Plate: `DOIT ESP32 DEVKIT V1`
@@ -183,11 +182,11 @@ Update speed: `921600`
 Frequency: `80MHz`
 The COM needs to be reviewed in the Device Manager o Administrator (in this case COM14).
 
-imagen conection
+![](./conection.JPG)
 
 Now if you open the Serial Monitor on the top-right side, you can see that the sensor is measuring every 3 seconds.
 
-imagen serial
+![](./serial.JPG)
 
 # Internet Connection (ESP32)
 
@@ -210,7 +209,7 @@ Make sure the topic is the same as the one in the `mqtt-esp32.ino`, in this case
 
 Go to Arduino, use the same configuration as the one in the Sensor that was used before. Update and press `boot` unitl the connetion get completed.
 
-imagen wifi
+![](./wifi.JPG)
 
 # ESP32 + Mosquitto Server + Sensor
 
@@ -219,21 +218,21 @@ First go to the local host of Node-Red in `beaglebone.local:1880` in the browser
 `debug` in commun.
 `chat` in dashboard.
 
-imagen nd
+![](./nd.JPG)
 
 One is gonna be used for the Temperature and the other fot the Humidity, so let's change their names and propierties.
 
 For the temperature mqtt in:
 
-imagen temp
+![](./temp.JPG)
 
 For the humidity mqtt in:
 
-imagen hum
+![](./hum.JPG)
 
 Configuration of propierties:
 
-imagen config
+![](./config.JPG)
 
 On the charts just change the names (Labels) like the names of the measure.
 
@@ -243,7 +242,7 @@ In the connection of the MQTTX app, change the topic to the same name as the nod
 
 Now in the Serial Monitor you should have a vew like this:
 
-imagen prueba
+![](./prueba.JPG)
 
 That means that the ESP32 was succesfully connected to Wi-Fi and it is measuring the temperatura and humidity.
 
@@ -251,4 +250,4 @@ Go again to the beaglebone local host in the browser, press the red button `Depl
 
 As you can see the measures of the ESP32 and the charts (Graphs) match each other.
 
-imagen final
+![](./final.JPG)
