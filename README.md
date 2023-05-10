@@ -107,8 +107,11 @@ Now, to see if it is working correctly is necessary to download `MQTTX` in your 
 I have already that name, so in my case, it shall not be created.
 
 Go to the local host of the beaglebone: `beaglebone.local:1880`, then in the new interface go to the left part and find the next components by adding them to the central panel: 
+
 `mqtt in` in "network"
+
 `debug` in "commun"
+
 `chart` in dashboard
 ![](./test1.JPG)
 
@@ -138,12 +141,16 @@ Make sure the topic of the server is the same as the Node-Red net. In this case 
 
 ![](./topic.JPG)
 
-# Temperatu and Humidity Sensor
+If you type a message it shall be showed in the MQTTX app and in the Serial Port of Arduino App.
+
+# Temperature and Humidity Sensor
 
 The sensor that is gonna be used is the Dht11, if you watch it from the front of the component, the connections are GND, Data and VCC
 
 `VCC` is the voltage supply (3.3V)
+
 `Data` is the measure pin.
+
 `GND` is the ground connection.
 
 ![](./dht11.JPG)
@@ -166,8 +173,11 @@ Go to `Tools -> Plates -> Pkate Manager` and in Search type `esp32`, and look fo
 
 You must add 3 libreries so the Dht11 and the connection to the Mosquitto Server could work properly.
 Go to `Program -> Add Libraries -> Manage Libraries` and type in Search:
+
 `PubSubClient` by Nick O'Leary
+
 `DHT sensor library` by Adafruit
+
 `Adafruit Unifed Sensor` by Adafruit
 
 ![](./biblio1.JPG)
@@ -177,9 +187,13 @@ Go to `Program -> Add Libraries -> Manage Libraries` and type in Search:
 ![](./biblio3.JPG)
 
 Use the code of `dht11-esp32.ino` to test the sensor. When you are gonna send the code to the esp32, it's going to look for comunication, so when it happens, make sure the next things in `Tools`:
+
 Plate: `DOIT ESP32 DEVKIT V1`
+
 Update speed: `921600`
+
 Frequency: `80MHz`
+
 The COM needs to be reviewed in the Device Manager o Administrator (in this case COM14).
 
 ![](./conection.JPG)
@@ -214,8 +228,11 @@ Go to Arduino, use the same configuration as the one in the Sensor that was used
 # ESP32 + Mosquitto Server + Sensor
 
 First go to the local host of Node-Red in `beaglebone.local:1880` in the browser. Add 2 of the next components to the central panel:
+
 `mqtt in` in network.
+
 `debug` in commun.
+
 `chat` in dashboard.
 
 ![](./nd.JPG)
